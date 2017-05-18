@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">Show Nigeria</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="abia_state">Abia </string>
+    <string name="Adamawa_state">Adamawa</string>
+    <string name="anambra_state">Anambra</string>
+    <string name="akwa_ibom_state">Akwa Ibom</string>
+    <string name="bauchi_state">Bauchi</string>
+    <string name="bayelsa_state">Bayelsa</string>
+    <string name="benue_state">Benue</string>
+    <string name="borno_state">Borno</string>
+    <string name="cross_river_state">Cross River</string>
+    <string name="delta_state">Delta </string>
+    <string name="ebonyi_state">Ebonyi </string>
+    <string name="enugu_state">Enugu</string>
+    <string name="edo_state">Edo </string>
+    <string name="ekiti_state">Ekiti</string>
+    <string name="fct_state">FCT</string>
+    <string name="gombe_state">Gombe</string>
+    <string name="imo_state">Imo</string>
+    <string name="jigawa_state">Jigawa</string>
+    <string name="kaduna_state">Kaduna</string>
+    <string name="kano_state">Kano</string>
+    <string name="katsina_state">Katsina</string>
+    <string name="kebbi_state">Kebbi</string>
+    <string name="Kogi_state">Kogi</string>
+    <string name="kwara_state">Kwara</string>
+    <string name="lagos_state">Lagos</string>
+    <string name="nasarawa_state">Nasarawa</string>
+    <string name="niger_state">Niger</string>
+    <string name="ogun_state">Ogun</string>
+    <string name="ondo_state">Ondo</string>
+    <string name="osun_state">Osun</string>
+    <string name="oyo_state">Oyo</string>
+    <string name="plateau_state">Plateau</string>
+    <string name="rivers_state">Rivers</string>
+    <string name="sokoto_state">Sokoto</string>
+    <string name="taraba_state">Taraba</string>
+    <string name="yobe_state">Yobe</string>
+    <string name="zamfara_state">Zamfara</string>
+    <string name="google_maps_key">AIzaSyDFjIr8n2cvo0_S-X1XKMBt_00E7zP_wSA</string>
+</resources>

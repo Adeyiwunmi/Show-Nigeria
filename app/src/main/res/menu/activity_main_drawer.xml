@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+        <item
+            android:title="@string/abia_state"
+            android:id="@+id/id_Abia" />
+    <item
+            android:title="@string/anambra_state"
+            android:id="@+id/id_Anambra" />
+        <item
+            android:title="@string/akwa_ibom_state"
+            android:id="@+id/id_AkwaIbom" />
+    <item
+        android:id="@+id/id_Adamawa"
+        android:title="@string/Adamawa_state" />
+    <item
+            android:title="@string/bauchi_state"
+            android:id="@+id/id_Bauchi" />
+        <item
+            android:title="@string/bayelsa_state"
+            android:id="@+id/id_Bayelsa"/>
+        <item
+            android:title="@string/benue_state"
+            android:id="@+id/id_Benue" />
+        <item
+            android:title="@string/borno_state"
+            android:id="@+id/id_Borno" />
+        <item
+            android:title="@string/cross_river_state"
+            android:id="@+id/id_crossRiver" />
+        <item
+            android:title="@string/delta_state"
+            android:id="@+id/id_Delta" />
+        <item
+            android:title="@string/ebonyi_state"
+            android:id="@+id/id_Ebonyi" />
+        <item
+            android:title="@string/enugu_state"
+            android:id="@+id/id_Enugu" />
+        <item
+            android:title="@string/edo_state"
+            android:id="@+id/id_Edo" />
+        <item
+            android:title="@string/ekiti_state"
+            android:id="@+id/id_Ekiti" />
+    <item android:title="@string/fct_state"
+        android:id="@+id/id_FCT"/>
+        <item
+            android:title="@string/gombe_state"
+            android:id="@+id/id_Gombe" />
+        <item
+            android:title="@string/imo_state"
+            android:id="@+id/id_Imo"/>
+        <item
+            android:title="@string/jigawa_state"
+            android:id="@+id/id_Jigawa"/>
+        <item
+            android:title="@string/kaduna_state"
+            android:id="@+id/id_Kaduna"/>
+        <item
+            android:title="@string/kano_state"
+            android:id="@+id/id_kano"/>
+        <item
+            android:title="@string/katsina_state"
+          android:id="@+id/id_Katsina"  />
+        <item
+            android:title="@string/kebbi_state"
+            android:id="@+id/id_kebbi"/>
+        <item
+            android:title="@string/Kogi_state"
+            android:id="@+id/id_Kogi"/>
+        <item
+            android:title="@string/kwara_state"
+            android:id="@+id/id_Kwara"/>
+        <item
+            android:title="@string/lagos_state"
+            android:id="@+id/id_Lagos"/>
+        <item
+            android:title="@string/nasarawa_state"
+            android:id="@+id/id_Nasarawa"/>
+        <item
+            android:title="@string/niger_state"
+            android:id="@+id/id_Niger"/>
+        <item
+            android:title="@string/ogun_state"
+            android:id="@+id/id_Ogun"/>
+        <item
+            android:title="@string/ondo_state"
+            android:id="@+id/id_Ondo"/>
+        <item
+            android:title="@string/osun_state"
+            android:id="@+id/id_Osun"/>
+        <item
+            android:title="@string/oyo_state"
+            android:id="@+id/id_Oyo"/>
+        <item
+            android:title="@string/plateau_state"
+            android:id="@+id/id_Plateau"/>
+        <item
+            android:title="@string/rivers_state"
+            android:id="@+id/id_Rivers"/>
+        <item
+            android:title="@string/sokoto_state"
+            android:id="@+id/id_Sokoto"/>
+        <item
+            android:title="@string/taraba_state"
+            android:id="@+id/id_Taraba" />
+        <item
+            android:title="@string/yobe_state"
+            android:id="@+id/id_Yobe" />
+        <item
+            android:title="@string/zamfara_state"
+            android:id="@+id/id_Zamfara" />
+
+
+</menu>
