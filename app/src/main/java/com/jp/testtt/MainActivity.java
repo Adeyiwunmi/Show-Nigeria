@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Looper;
 import android.support.annotation.NonNull;
@@ -13,6 +14,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.media.MediaBrowserCompat;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -22,6 +24,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -50,7 +54,9 @@ public class MainActivity extends AppCompatActivity
     GoogleMap googleMap;
     Toolbar toolbar;
     GoogleApiClient googleApiClient;
-
+    LocationManager locationManager;
+    TextView tv;
+   FrameLayout framelayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +74,8 @@ public class MainActivity extends AppCompatActivity
         googleApiClient = new GoogleApiClient.Builder(this, this,  this).addApi(LocationServices.API).build();
 
         //initialiseMap();
+        tv = (TextView)findViewById(R.id.id_TextV);
+        framelayout = (FrameLayout)findViewById(R.id.frame);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -82,14 +90,34 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onConnected(Bundle bundle) {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED) {
-            Location lastLocation = LocationServices.FusedLocationApi.getLastLocation(googleApiClient);
 
-            double lat = lastLocation.getLatitude(), lon = lastLocation.getLongitude();
-            initialiseMap(lat,lon, "Your Location");
+        if(isLocationEnabled(getApplicationContext())== true){
+            framelayout.setVisibility(View.VISIBLE);
+            tv.setVisibility(View.INVISIBLE);
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
+                    == PackageManager.PERMISSION_GRANTED) {
+                try {
+                    Location lastLocation = LocationServices.FusedLocationApi.getLastLocation(googleApiClient);
+
+                    double lat = lastLocation.getLatitude(), lon = lastLocation.getLongitude();
+                    initialiseMap(lat, lon, "Your Location");
+                } catch (Exception e){
+                    e.printStackTrace();
+                    Toast.makeText(this, "unable to load map", Toast.LENGTH_SHORT).show();
+
+                }
+
+            }
+        }
+        else{
+            Toast.makeText(this, "Please put on your location and restart the app to use the map", Toast.LENGTH_SHORT).show();
+
+            framelayout.setVisibility(View.GONE);
+            tv.setVisibility(View.VISIBLE);
+
 
         }
+
     }
 
 
@@ -286,7 +314,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void initialiseMap() {
-        googleApiClient = new GoogleApiClient.Builder(this, this,  this).addApi(LocationServices.API).build();
+       // googleApiClient = new GoogleApiClient.Builder(this, this,  this).addApi(LocationServices.API).build();
 
         if (googleMap == null) {
             googleMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.mapfrag)).getMap();
@@ -308,6 +336,8 @@ public class MainActivity extends AppCompatActivity
 
     public void initialiseMap(double lat, double longt, String title) {
         //googleMap.clear();
+        tv.setVisibility(View.GONE);
+        framelayout.setVisibility(View.VISIBLE);
         googleMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.mapfrag)).getMap();
         MarkerOptions markerOptions = new MarkerOptions().position(new LatLng(lat, longt)).title(title);
         CameraPosition cameraPosition = new CameraPosition.Builder().target(new LatLng(lat, longt)).zoom(12).build();
@@ -341,10 +371,12 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onConnectionSuspended(int i) {
 
+        Toast.makeText(getApplicationContext(), "Connection suspended", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
+        Toast.makeText(getApplicationContext(), "Connection failed", Toast.LENGTH_SHORT).show();
 
     }
     @Override
@@ -366,4 +398,36 @@ public class MainActivity extends AppCompatActivity
                 break;
         }
     }
+
+    public boolean  isLocationEnabled(Context ctx){
+        LocationManager locationManager = null;
+        boolean gps_enabled = false;
+        if(locationManager == null){
+            locationManager = (LocationManager)ctx.getSystemService(Context.LOCATION_SERVICE);
+            try{
+                gps_enabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+            }catch(Exception ex){
+                Log.e("main Activity", "isLocationEnabled: ",ex);
+            }
+        }
+        return gps_enabled;
+    }
+
+    public  void loadFirstMapp(){
+        framelayout.setVisibility(View.VISIBLE);
+        tv.setVisibility(View.INVISIBLE);
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
+            googleApiClient =  new GoogleApiClient.Builder(this, this,  this).addApi(LocationServices.API).build();
+
+            Location lastLocation = LocationServices.FusedLocationApi.getLastLocation(googleApiClient);
+
+           // double lat = lastLocation.getLatitude(), lon = lastLocation.getLongitude();
+            initialiseMap(lastLocation.getLatitude(),lastLocation.getLongitude(), "Your Location");
+        }
+
+
+        }
+
+
 }

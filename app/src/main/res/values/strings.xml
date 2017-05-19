@@ -43,4 +43,5 @@
     <string name="yobe_state">Yobe</string>
     <string name="zamfara_state">Zamfara</string>
     <string name="google_maps_key">AIzaSyDFjIr8n2cvo0_S-X1XKMBt_00E7zP_wSA</string>
+    <string name="put_on_Location">Please Put on your location and restart the application to use the map to get your location</string>
 </resources>
